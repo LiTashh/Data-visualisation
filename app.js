@@ -4,7 +4,7 @@ let viz;
 
 //Add Share Link to Tableau Public in here
 const url = "https://public.tableau.com/shared/TPPK9KMR3?:display_count=n&:origin=viz_share_link";
-const url = "https://public.tableau.com/views/TestTask_YouControl/TestTask_YouControl?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link";
+
 
 const vizContainer = document.getElementById('vizContainer');
 const options = {
