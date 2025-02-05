@@ -11,6 +11,7 @@ const options = {
     hideTabs: true,
     height: 600,
     width: 100%,
+
     onFirstInteraction: function() {
         workbook = viz.getWorkbook();
         activeSheet = workbook.getActiveSheet();
@@ -22,6 +23,7 @@ const options2 = { // Опції для другої візуалізації (�
     hideTabs: true,
     height: 600,
     width: 100%,
+
     onFirstInteraction: function() {
         workbook2 = viz2.getWorkbook();
         activeSheet2 = workbook2.getActiveSheet();
