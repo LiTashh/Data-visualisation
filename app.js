@@ -1,50 +1,66 @@
-console.log('Is this working?');
-
 let viz;
+let viz2; // Змінна для другої візуалізації
 
-//Add Share Link to Tableau Public in here
-const url = "https://public.tableau.com/shared/TPPK9KMR3?:display_count=n&:origin=viz_share_link";
-
+const url = "https://public.tableau.com/views/finalProject_17333178391940/FinalProject?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; // URL першої візуалізації 
+const url2 = "https://public.tableau.com/views/TestTask_YouControl/TestTask_YouControl?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; // URL другої візуалізації 
 
 const vizContainer = document.getElementById('vizContainer');
+const vizContainer2 = document.getElementById('vizContainer2'); // Контейнер для другої візуалізації
+
 const options = {
     hideTabs: true,
-    height: 1000,
-    width: 1200,
+    height: 800,
+    width: 1000,
     onFirstInteraction: function() {
         workbook = viz.getWorkbook();
         activeSheet = workbook.getActiveSheet();
-        console.log("My dashboard is interactive");
+        console.log("First dashboard is interactive");
     }
 };
 
-//create a function to generate the viz element
+const options2 = { // Опції для другої візуалізації (можуть відрізнятися)
+    hideTabs: true,
+    height: 600,
+    width: 800,
+    onFirstInteraction: function() {
+        workbook2 = viz2.getWorkbook();
+        activeSheet2 = workbook2.getActiveSheet();
+        console.log("Second dashboard is interactive");
+    }
+};
+
 function initViz() {
-    console.log('Executing the initViz function!');
     viz = new tableau.Viz(vizContainer, url, options);
 }
 
-// run the initViz function when the page loads
-document.addEventListener("DOMContentLoaded", initViz);
+function initViz2() { // Функція для другої візуалізації
+    viz2 = new tableau.Viz(vizContainer2, url2, options2);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    initViz();
+    initViz2(); // Викликаємо функцію для другої візуалізації
+});
+
+// ... (решта коду для експорту - без змін)
 
 const exportPDF = document.getElementById('exportPDF');
 const exportImage = document.getElementById('exportImage');
 
+exportPDF.addEventListener("click", function() {
+    //  ТУТ ПОТРІБНО ВИЗНАЧИТИ, ЯКУ ВІЗУАЛІЗАЦІЮ ЕКСПОРТУВАТИ (viz або viz2)
+    if (viz) {
+        viz.showExportPDFDialog();
+    } else {
+        console.error("Перша візуалізація не завантажена.");
+    }
+});
 
-//click on the pdf button to generate pdf of dashboard
-function generatePDF() {
-    viz.showExportPDFDialog()
-}
-
-exportPDF.addEventListener("click", function () {
-    generatePDF();
-  });
-
-//click on image to generate image of dashboard
-function generateImage() {
-    viz.showExportImageDialog()
-}
-
-exportImage.addEventListener("click", function () {
-    generateImage();
-  });
+exportImage.addEventListener("click", function() {
+        //  ТУТ ПОТРІБНО ВИЗНАЧИТИ, ЯКУ ВІЗУАЛІЗАЦІЮ ЕКСПОРТУВАТИ (viz або viz2)
+    if (viz) {
+        viz.showExportImageDialog();
+    } else {
+        console.error("Перша візуалізація не завантажена.");
+    }
+});
