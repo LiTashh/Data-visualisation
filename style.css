@@ -1,0 +1,18 @@
+#vizContainerWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#vizContainer, #vizContainer2 {
+    width: 50%;
+    height: 600px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    #vizContainer, #vizContainer2 {
+        width: 100%;
+    }
+}
