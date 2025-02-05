@@ -9,8 +9,8 @@ const vizContainer2 = document.getElementById('vizContainer2'); // Контей�
 
 const options = {
     hideTabs: true,
-    height: 600,
-    width: 100%,
+    height: 600, // Змінено на 600, щоб відповідало CSS
+    width: '100%', // Ширина тут не важна, оскільки вона задається в CSS
 
     onFirstInteraction: function() {
         workbook = viz.getWorkbook();
@@ -19,10 +19,10 @@ const options = {
     }
 };
 
-const options2 = { // Опції для другої візуалізації (можуть відрізнятися)
+const options2 = {
     hideTabs: true,
-    height: 600,
-    width: 100%,
+    height: 600, // Змінено на 600, щоб відповідало CSS
+    width: '100%', // Ширина тут не важна, оскільки вона задається в CSS
 
     onFirstInteraction: function() {
         workbook2 = viz2.getWorkbook();
