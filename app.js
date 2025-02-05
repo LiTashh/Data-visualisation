@@ -9,8 +9,9 @@ const vizContainer2 = document.getElementById('vizContainer2'); // Контей�
 
 const options = {
     hideTabs: true,
-    height: 800,
-    width: 1000,
+    height: 600,
+    width: 100%,
+
     onFirstInteraction: function() {
         workbook = viz.getWorkbook();
         activeSheet = workbook.getActiveSheet();
@@ -21,7 +22,8 @@ const options = {
 const options2 = { // Опції для другої візуалізації (можуть відрізнятися)
     hideTabs: true,
     height: 600,
-    width: 800,
+    width: 100%,
+
     onFirstInteraction: function() {
         workbook2 = viz2.getWorkbook();
         activeSheet2 = workbook2.getActiveSheet();
